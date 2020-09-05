@@ -2,7 +2,7 @@ const CACHE_NAME = 'budget-cache-v1';
 const DATA_CACHE_NAME = 'budget-data-cache-v1';
 
 const FILES_TO_CACHE = [
-  // figure out which data needs to be cached. Probably just index.html and its assets, but could be data stored using indexDB.
+  './index.html', './js/index.js', './js/idb.js', './css/styles.css'
 ];
 
 // Install the service worker
