@@ -93,7 +93,7 @@ function sendTransaction(isAdding) {
   }
 
   // create record
-  let newTransaction = {
+  let transaction = {
     name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString()
@@ -101,11 +101,11 @@ function sendTransaction(isAdding) {
 
   // if subtracting funds, convert amount to negative number
   if (!isAdding) {
-    newTransaction.value *= -1;
+    transaction.value *= -1;
   }
 
   // add to beginning of current array of data
-  transactions.unshift(newTransaction);
+  transactions.unshift(transaction);
 
   // re-run logic to populate ui with new record
   populateChart();
@@ -115,7 +115,7 @@ function sendTransaction(isAdding) {
   // also send to server
   fetch("/api/transaction", {
     method: "POST",
-    body: JSON.stringify(newTransaction),
+    body: JSON.stringify(transaction),
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json"
@@ -136,7 +136,8 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
-    saveRecord(newTransaction);
+    console.log('post failed, should add to indexdb');
+    saveRecord(transaction);
 
     // clear form
     nameEl.value = "";
