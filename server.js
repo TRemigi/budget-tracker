@@ -2,13 +2,10 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
-require("dotenv").config()
-
-const MONGO_PASS = process.env.MONGO_PASS;
-const MONGO_DB = process.env.MONGO_DB;
+require("dotenv").config();
 
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = `mongodb+srv://TRemigi:${MONGO_PASS}@cluster0.sjd0b.mongodb.net/budget?retryWrites=true&w=majority`; 
+const MONGODB_URI = `mongodb+srv://TRemigi:${process.env.MONGO_PASS}@cluster0.sjd0b.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`; 
 // || "mongodb://localhost/budget";
 
 const app = express();
