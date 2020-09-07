@@ -1,5 +1,7 @@
 # Budget Tracker ![MIT Badge](https://img.shields.io/badge/License-MIT-brightgreen)
 
+![Budget Tracker Application](./public/images/budget-tracker-screenshot.png)
+
 ## Description
 
 Budget Tracker is a single-page PWA that helps users keep track of expenses and deposits on the go, with or without an internet connection.
