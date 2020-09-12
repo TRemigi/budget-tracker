@@ -12,7 +12,7 @@ request.onupgradeneeded = function (event) {
   db.createObjectStore("new_transaction", { autoIncrement: true });
 };
 
-// upon a successful
+// upon success
 request.onsuccess = function (event) {
   // when db is successfully created with its object store (from onupgradedneeded event above) or simply established a connection, save reference to db in global variable
   db = event.target.result;
@@ -24,7 +24,7 @@ request.onsuccess = function (event) {
 };
 
 request.onerror = function (event) {
-  // log error here
+
   console.log(event.target.errorCode);
 };
 
@@ -52,7 +52,7 @@ function uploadTransaction() {
 
   // upon a successful .getAll() execution, run this function
   getAll.onsuccess = function () {
-    // if there was data in indexedDb's store, let's send it to the api server
+    // if there was data in indexedDb's store send it to the api server
     if (getAll.result.length > 0) {
       fetch("/api/transaction", {
         method: "POST",

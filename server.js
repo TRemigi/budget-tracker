@@ -6,7 +6,6 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = `mongodb+srv://TRemigi:${process.env.MONGO_PASS}@cluster0.sjd0b.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`; 
-// || "mongodb://localhost/budget";
 
 const app = express();
 
@@ -26,6 +25,7 @@ mongoose.connect(MONGODB_URI, {
 // routes
 app.use(require("./routes/api.js"));
 
+// start server
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
